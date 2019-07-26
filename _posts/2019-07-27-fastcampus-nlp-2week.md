@@ -1,3 +1,17 @@
+---
+layout: post
+title: "NLP - 2week"
+subtitle: "from fastcampus"
+author: "Maguire1815"
+header-img: "img/post-bg-infinity.jpg"
+header-mask: 0.3
+mathjax: true
+tags:
+  - nlp
+  - al
+  - ml
+---
+
 # 2 week
 
 - An Introduction To Deep Learning for Natural Language Processing
