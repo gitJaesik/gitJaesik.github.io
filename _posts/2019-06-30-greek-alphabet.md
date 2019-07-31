@@ -11,9 +11,11 @@ tags:
   - paper
 ---
 
-> Jekyll Math [ref](https://kramdown.gettalong.org/syntax.html)
+> Jekyll Math
+- [ref](https://kramdown.gettalong.org/syntax.html)
+- [LaTex](https://en.wikibooks.org/wiki/LaTeX/Mathematics)
 
-Blow is MathJax
+Blow is LaTax redered by MathJax
 
 $$
 \begin{align*}
@@ -42,4 +44,3 @@ $\\Huge B$
 $\\Huge \\beta$
 $\\Huge \\Gamma$
 $\\Huge \\gamma$
-
