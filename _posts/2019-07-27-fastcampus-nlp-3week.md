@@ -275,7 +275,7 @@ $$
 - w는 softmax를 취했으니 0~1사이 값이 나옴
 
 $$
-c = H^{src} \cdot w \quad \textnormal{and c is a context vector}
+c = H^{src} \cdot w \quad \text{and c is a context vector}
 $$
 
 - w에 대한 가중합을 하면 c가 나옴
@@ -324,13 +324,13 @@ $$
 H^{src} = [h_1^{src};h_2{src};...;h_n^{src}]
 $$
 $$
-h_t^{tgt} = RNN_{dec}([emb_{tgt}(y_{t-1});h_{t-1}^{tgt}], h_{t-1}^{tgt}) \quad \textnormal{where} \quad h_0^{tgt} = h_n^{src} \quad and \quad y_0 = BOS
+h_t^{tgt} = RNN_{dec}([emb_{tgt}(y_{t-1});h_{t-1}^{tgt}], h_{t-1}^{tgt}) \quad \text{where} \quad h_0^{tgt} = h_n^{src} \quad and \quad y_0 = BOS
 $$
 $$
 w = \operatorname*{softmax}(h_t^{tgt T}W \cdot H^{src})
 $$
 $$
-c = H^{src} \cdot w \quad \textnormal{and c is a context vector}
+c = H^{src} \cdot w \quad \text{and c is a context vector}
 $$
 $$
 \tilde h_t^{tgt} = tanh(linear_{2hs->hs}([h_t^{tgt};c]))
@@ -404,55 +404,132 @@ $$
   - ROUGH
     - summerization에 사용
 
+19:00
+
 #### Cross Entropy and Perplexity
 
 $$
 PPL(W) = P(w_1, w_2, ..., w_n)^{\frac{-1}{N}}
 $$
 
+$$
+L = -\frac{1}{|Y|}\sum_{y \in Y}P(y)logP_{\theta}(y)
+$$
+
+- PPL = exp(Cross Entropy)
+
 #### BLEU
+
+- PPL이 번역할 떄 좋은 것은 아님
+  - Cross-Entropy로 비교하면 더 좋지 않은 것을 좋다고 함
+    - 단어가 같아야 좋은 것이라고 판단하기 때문
+
+$$
+BLEU = brevity-penalty * \Pi_{n=1}^{N}P_n^{w_n}
+$$
+
+$$
+\text{where brevity-penalty} = min(1, \frac{|prediction|}{|reference|})
+$$
+
+$$
+\text{and} \quad p_n \quad \text{is precision of n-gram and} \quad w_n \text{ is weight that } w_n = \frac{1}{2^n}
+$$
+
+- Rouge는 precision을 recall(회수율)로 변경하면 됨
 
 #### Bi-gram count
 
+- n-gram (여기서는 2개씩)만 맞추면 측정이 됨
+
 #### Summary for Evaluation Methods
 
+- Perplexity
+  - Lower is GOOD
+- BLUE
+  - Higher is GOOD
+  - 미분이 안됨
+
 #### Consolusion
+
+- Attention
+  - Finding a "Value" which has similar "Key" to "Query"
+
+- Perplexity (cross-entropy) cannot measure translation quality exactly
 
 ### Advanced Topic in NMT
 
 #### Zero-shot Learning
 
+- <2es>
+  - special token만 넣으면 multi-lingual 훈련이 됨
+- 각 언어별로 모델 만드는게 최고
+- 그러나 전문분야 도메인에 좋음
+  - interpolation
+
 #### Many to One
+
+- 다수의 언어를 encoder에 넣고 훈련
 
 #### One to Many
 
+- 다수의 언어를 decoder에 넣고 훈련
+
 #### Many to Many
+
+- 다수의 언어를 encoder와 decoder에 모두 넣고 훈련
 
 #### Zero-shot Translation
 
-#### Zero-shot Translation?
+- zero-shot translation 성능 평가
 
 #### Language Model Ensemble
 
+- monolingual corpus 훈련한 language model과 parrallel corpus를 훈련한 seq2seq를 앙상블 함
+- 방법은 여러가지
+
 #### Back Translation
+
+- 한영 번역기를 만들 때 영한 번역기를 사용하는 것과 비슷
 
 #### Copied Translation
 
+- 입력에 y를 넣고 출력에 y를 넣으면 됨
+
 #### Back + Copied Translation
+
+- 목표
+  - language model을 훈련 (decoder)
+    - 문장을 많이 볼 수록 decoder의 성능이 좋아짐
 
 #### Summary of using monolingual corpora
 
+- Language model ensemble
+  - Pros
+    - no limit for amount of corpus
+- Back( + copied) translation
+  - Pros
+    - Super-easy
+    - Both can be used
+
 #### Fully Convolutional Seq2Seq
+
+- pattern 찾는데는 convolution이 좋음
 
 #### Transformer
 
+- Attention을 여러개를 쌓음
+
 #### Attention
 
-#### Attention Case by Case
+$$
+Attention(Q, K, V) = softmax(\frac{QK^T}{\sqrt d_k})V
+$$
 
 #### Positional Encoding
 
+- Since there is not recurrence, we need to put position information by adding positional encoding
+
 #### Evaluation
 
-
-
+- 성능 좋음
