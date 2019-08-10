@@ -50,7 +50,7 @@ plt.legend()
 plt.title(r"$A\sin\left(\omega{t}+\phi\right)$")
 plt.show()
 ```
-![wav_data](../img/2019-07-30-digital-sound-processing-01/post-sin.png)
+![wav_data](/img/2019-07-30-digital-sound-processing-01/post-sin.png)
 
 ## The relation between frequency and period
 
@@ -105,7 +105,7 @@ plt.show()
 
 Audio(y_read, rate=sr)
 ```
-![wav_data](../img/2019-07-30-digital-sound-processing-01/wav_data_graph.png)
+![wav_data](/img/2019-07-30-digital-sound-processing-01/wav_data_graph.png)
 
 ## Dual-tone multi-frequency signaling
 
@@ -143,7 +143,7 @@ plt.title(r"$1.1\cdot\sin(2\pi\cdot 697t) + 0.9\cdot\sin(2\pi\cdot 1209t)$")
 plt.tight_layout()
 plt.show()
 ```
-![freq_plus_operation](../img/2019-07-30-digital-sound-processing-01/freq_plus_operation.png)
+![freq_plus_operation](/img/2019-07-30-digital-sound-processing-01/freq_plus_operation.png)
 
 
 ## Complex exponential function
@@ -209,7 +209,7 @@ plt.xlim(900, 1270)
 
 plt.show()
 ```
-![freq_plus_operation_check](../img/2019-07-30-digital-sound-processing-01/freq_plus_operation_check.png)
+![freq_plus_operation_check](/img/2019-07-30-digital-sound-processing-01/freq_plus_operation_check.png)
 
 - Analysis above frequency with fftp command of scipy.fftpack emphasize 692Hz, 1211Hz
 - periodgram
@@ -225,7 +225,7 @@ plt.xlim(0, 3000)
 
 plt.show()
 ```
-![fft](../img/2019-07-30-digital-sound-processing-01/fft.png)
+![fft](/img/2019-07-30-digital-sound-processing-01/fft.png)
 
 ## Discrete Cosine Transform
 
@@ -258,7 +258,7 @@ plt.title("DCT")
 plt.tight_layout()
 plt.show()
 ```
-![dct](../img/2019-07-30-digital-sound-processing-01/dct.png)
+![dct](/img/2019-07-30-digital-sound-processing-01/dct.png)
 
 ## Spectrum
 
@@ -286,7 +286,7 @@ plt.title("Log scale")
 plt.tight_layout()
 plt.show()
 ```
-![periodogram](../img/2019-07-30-digital-sound-processing-01/periodogram.png)
+![periodogram](/img/2019-07-30-digital-sound-processing-01/periodogram.png)
 
 ## STFT
 
@@ -308,7 +308,7 @@ librosa.display.specshow(librosa.amplitude_to_db(D, ref=np.max), y_axis='linear'
 plt.title('Dual Tone')
 plt.show()
 ```
-![librosa_stft](../img/2019-07-30-digital-sound-processing-01/librosa_stft.png)
+![librosa_stft](/img/2019-07-30-digital-sound-processing-01/librosa_stft.png)
 
 ```python
 sr_octave, y_octave = scipy.io.wavfile.read("octave.wav")
@@ -318,7 +318,7 @@ librosa.display.specshow(librosa.amplitude_to_db(D_octave, ref=np.max), sr=sr_oc
 plt.title('Octave')
 plt.show()
 ```
-![specshow](../img/2019-07-30-digital-sound-processing-01/specshow.png)
+![specshow](/img/2019-07-30-digital-sound-processing-01/specshow.png)
 
 ## Mel Spectrum
 
@@ -330,7 +330,7 @@ S_octave = librosa.feature.melspectrogram(y=y_octave, sr=sr_octave, n_mels=128)
 librosa.display.specshow(librosa.power_to_db(S_octave, ref=np.max), sr=sr_octave, y_axis='mel', x_axis='time')
 plt.show()
 ```
-![melspectrogram](../img/2019-07-30-digital-sound-processing-01/melspectrogram.png)
+![melspectrogram](/img/2019-07-30-digital-sound-processing-01/melspectrogram.png)
 
 ## MFCC
 
@@ -340,7 +340,7 @@ y, sr = librosa.load(librosa.util.example_audio_file())
 plt.plot(y[1000:5000])
 plt.show()
 ```
-![example_audio](../img/2019-07-30-digital-sound-processing-01/example_audio.png)
+![example_audio](/img/2019-07-30-digital-sound-processing-01/example_audio.png)
 
 ```python
 from IPython.display import Audio, display
@@ -352,7 +352,7 @@ S = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=128)
 librosa.display.specshow(librosa.power_to_db(S, ref=np.max), sr=sr, y_axis='mel', x_axis='time')
 plt.show()
 ```
-![melspectrogram_eaxmple](../img/2019-07-30-digital-sound-processing-01/melspectrogram_eaxmple.png)
+![melspectrogram_eaxmple](/img/2019-07-30-digital-sound-processing-01/melspectrogram_eaxmple.png)
 
 - Mel-frequency cepstral coefficients is a coefficient obtained by grouping Mel Scale Spectrum into 40 frequency bands and then Fourier transforming them
 - It can be thought of as a characteristic value indicating how the spectrum is shaped
@@ -364,4 +364,4 @@ plt.title('MFCC')
 plt.tight_layout()
 plt.show()
 ```
-![mfcc](../img/2019-07-30-digital-sound-processing-01/mfcc.png)
+![mfcc](/img/2019-07-30-digital-sound-processing-01/mfcc.png)
