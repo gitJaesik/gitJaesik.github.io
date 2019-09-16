@@ -14,6 +14,7 @@ tags:
 > Jekyll Math
 - [ref](https://kramdown.gettalong.org/syntax.html)
 - [LaTex](https://en.wikibooks.org/wiki/LaTeX/Mathematics)
+- [ref2](http://milde.users.sourceforge.net/LUCR/Math/mathpackages/amssymb-symbols.pdf)
 
 Blow is LaTax redered by MathJax
 
